@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Login</title>
+</head>
+
+<body>
+    <div id="conatiner">
+
+        <div id="createCount">
+            <h1>Criar Conta</h1>
+            <p>Digite seu email</p>
+            <input type="email" id="email">
+            <p>Digite seu email novamente</p>
+            <input type="email" id="emailConfirm">
+            <p>Digite sua senha</p>
+            <input type="password" id="password">
+            <p>Digite sua senha novamente</p>
+            <input type="password" id="passwordConfirm">
+            <button id="submitCreateCount">Criar conta</button>
+            <h2>Conta criada com sucesso</h2>
+        </div>
+
+        <div id="login">
+            <h1>Log in</h1>
+            <input type="email" id="emailLogin">
+            <input type="password" id="passwordLogin">
+            <button id="submitLogin">Entrar</button>
+            <button>Criar conta</button>
+        </div>
+
+
+
+    </div>
+
+    <script src="https://www.gstatic.com/firebasejs/8.8.0/firebase.js"></script>
+    <script src="authentication.js"></script>
+</body>
+
+</html>
