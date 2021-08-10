@@ -13,10 +13,7 @@ function login() {
                     location.href = "page.html"
                 })
                 .catch((error) => {
-                    errorReturn(error)
+                    console.log(error)
                 })
-        })
-        .catch((error) => {
-            console.log(error)
         })
 }

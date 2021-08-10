@@ -24,6 +24,7 @@ const sumbmitCreate = document.querySelector("#submitCreateCount").addEventListe
 const create = document.querySelector("#create").addEventListener("click", openPage)
 
 let createData = document.querySelector("#createCount")
+
 let close = document.querySelector("#close").addEventListener("click", openPage)
 
 function openPage() {
@@ -56,7 +57,6 @@ function createCount() {
             emailConfirm.value = ""
             password.value = ""
             passwordConfirm.value = ""
-            
         })
         .catch((error) => {
            errorReturn(error)

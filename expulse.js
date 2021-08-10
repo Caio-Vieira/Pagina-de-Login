@@ -11,17 +11,37 @@ firebase.initializeApp(firebaseConfig)
 
 let auth = firebase.auth()
 
+let exit = document.querySelector("#exit").addEventListener("click", expulse)
+
+function teste() {
+
+    auth.setPersistence(firebase.auth.Auth.Persistence.NONE)
+        .then(() => {
+
+            auth.onAuthStateChanged((user) => {
+                if (user) {
+                    console.log(user)
+                } else {
+                    location.href = "index.html"
+                }
+            })
+        })
+        .catch((error) => {
+            console.log(error)
+        })
+}
 
 function expulse() {
 
-    auth.onAuthStateChanged((user) => {
-        if (user) {
-         console.log(user)
-        } else {
-          console.log("erro")
-        }
-    })
-
+    auth.setPersistence(firebase.auth.Auth.Persistence.NONE)
+        .then(() => {
+            auth.signOut().then(() => {
+                location.href = "index.html"
+            }).catch((error) => {
+                console.log(error)
+            })
+        })
+        .catch((error) => {
+            console.log(error)
+        })
 }
-
-expulse()
