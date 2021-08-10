@@ -1,32 +1,101 @@
 *{
-    padding: 0;
-    margin: 0;
+    padding: 0px;
+    margin: 0px;
 }
-body{
-    height: 100vh;
+
+body, #createCount {
     background-color: #00121e ;
     align-items: center;
     font-family: Arial, Helvetica, sans-serif;
 }
-#container{
-    height: 100%;
+
+#createCount{
+    display: none;
 }
-#login{
+
+#createCount.active{
+    position: absolute;
+    width: 100%;
+    height: 100vh;
+    z-index: 1000;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    
+}
+
+#createCount.active  h2{
+    text-align: center;
+    color: #3de6af;
+    padding: 30px;
+    display: inline;
+    
+}
+
+#create-form > button{
+    display: block;
     margin: auto;
-    width: 70vw;
-    height: 70vh;
+    cursor: pointer;
+    border: none;
+    background-color: #3de6af;
+    color: #00121e;
+    font-weight: bold;
+    padding: 18px;
+    font-size: 15px;
+    border-radius: 5px;
+    width: 150px;
+}
+
+#create-form > input{
+    box-sizing: border-box;
+    margin-bottom: 10px;
+    padding: 20px;
+    width: 400px;
+    font-size: 18px;
+    border: 3px solid #26ade2;
+    border-radius: 10px;
+    color: #26ade2;
+    background-color: #00121e;
+    outline: none;  
+}
+
+#close{
+    border-radius: 100%;
+    border: 2px solid #3de6af;
+    background-color: transparent;
+    height: 30px;
+    width: 30px;
+    color: #3de6af;
+    font-weight: bold;
+    cursor: pointer;
+    transform: translateY(-10%);
+
+}
+
+#container{
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+#login{
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     text-align: center; 
 }
-#login-form > h1{
+
+#login > h1{
     text-align: center;
     color: #3de6af;
     padding: 30px;
 }
-#login-form > p{
+
+#login-form > p , #create-form > p {
     text-align: left;
     color: #3de6af;
     padding: 20px 5px;
@@ -36,7 +105,7 @@ body{
     box-sizing: border-box;
     margin-bottom: 30px;
     padding: 20px;
-    width: 30vw;
+    width: 400px;
     font-size: 18px;
     border: 3px solid #26ade2;
     border-radius: 10px;
@@ -44,31 +113,91 @@ body{
     background-color: #00121e;
     outline: none;  
 }
+
 #buttons{
     margin-top: 10px;
-    width: 50%;
+    width: 100%;
     display: flex;
-    flex-direction: row;
-    justify-content: space-evenly;
+    box-sizing: border-box;
+    justify-content: center;
 }
-#buttons > button{
+#buttons > button {
     cursor: pointer;
-    height: 50px;
-    width: 150px;
-    padding: 18px;
     border: none;
     background-color: #3de6af;
     color: #00121e;
     font-weight: bold;
+    padding: 18px;
     font-size: 15px;
     border-radius: 5px;
+    width: 150px;
+    margin: 0 15px;
 }
-#buttons > button:active{
+#buttons > button:active, #create-form > button:active{
     border: 3px solid #3de6af;
     background-color: #00121e;
     color: #3de6af;
     padding: 15px;
 }
-#createCount{
-    display: none;
+
+@media screen and (max-height: 630px) {
+    #login-form > input, #create-form > input{
+        width: 50vw;
+        height: 30px;
+        margin-bottom: 10px;
+    }
+
+
+    #create-form > button{
+       
+        margin: 12px auto;
+
+        padding: 15px;
+        font-size: 15px;
+        border-radius: 5px;
+        width: 150px;
+    }
+
+    #create-form > p{
+        text-align: left;
+        color: #3de6af;
+        padding: 15px 5px;
+        font-size: 18px;
+    }
+
+    #create-form > button:active{
+        border: 3px solid #3de6af;
+        background-color: #00121e;
+        color: #3de6af;
+        padding: 12px;
+    }
+   
 }
+
+@media screen and (max-width: 430px) {
+    #login-form > input, #create-form > input{
+        width: 80vw;
+        padding: 15px;
+    }
+
+    #buttons > button{
+        padding: 11px;
+        font-size: 15px;
+        width: 120px;
+        margin: 0 10px;
+    }
+
+    #buttons > button:active{
+
+        border: 3px solid #3de6af;
+        background-color: #00121e;
+        color: #3de6af;
+        padding: 8px;
+    }
+
+    #create-form > button{
+        margin-top: 10px;
+    }
+}
+
+

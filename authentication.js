@@ -21,7 +21,16 @@ const passwordConfirm = document.querySelector("#passwordConfirm")
 
 const sumbmitCreate = document.querySelector("#submitCreateCount").addEventListener("click", confirmData)
 
-const sumbmitLogin = document.querySelector("#submitLogin").addEventListener("click", login)
+const create = document.querySelector("#create").addEventListener("click", openPage)
+
+let createData = document.querySelector("#createCount")
+let close = document.querySelector("#close").addEventListener("click", openPage)
+
+function openPage() {
+    
+    createData.classList.toggle("active")
+}
+
 
 
 function confirmData() {
@@ -38,14 +47,16 @@ function confirmData() {
 }
 
 function createCount() {
-
+ 
     auth.createUserWithEmailAndPassword(email.value, password.value)
         .then(() => {
+            alert("Conta criada com sucesso")
+            openPage()
             email.value = ""
             emailConfirm.value = ""
             password.value = ""
             passwordConfirm.value = ""
-            // document.querySelector("h2").style.opacity = "1" mudar isso dps
+            
         })
         .catch((error) => {
            errorReturn(error)
@@ -53,31 +64,8 @@ function createCount() {
 }
 
 
-const emailLogin = document.querySelector("#emailLogin")
-const passwordLogin = document.querySelector("#passwordLogin")
-
-
-function login() {
-
-    auth.setPersistence(firebase.auth.Auth.Persistence.SESSION)
-        .then(() => {
-
-            auth.signInWithEmailAndPassword(emailLogin.value, passwordLogin.value)
-                .then(() => {
-                    location.href = "page.html"
-                })
-                .catch((error) => {
-                    errorReturn(error)
-                    
-                })
-        })
-        .catch((error) => {
-            console.log(error)
-        })
-}
-
-
 function errorReturn(error) {
+
     if (error.code == "auth/email-already-in-use") {
         alert("O endereço de email já está sendo utilizado")
     }
@@ -87,4 +75,11 @@ function errorReturn(error) {
     if (error.code == "auth/invalid-email") {
         alert("Email inválido")
     }
+    if (error.code == "auth/user-not-found") {
+        alert("Usuário não encontrado")
+    }
+    if (error.code == "auth/wrong-password") {
+        alert("Senha inválida")
+    }
+    
 }
