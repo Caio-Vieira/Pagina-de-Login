@@ -6,7 +6,7 @@ link da documentação do Firebase: https://firebase.google.com/docs/firestore/q
 
 ## Descrevendo a página 
 
-A seguinte página foi feita com HTML, CSS e JavaScript puro, e trás um layoult simples porém responsivo. A aplicação faz a criação e o login de um usuário, atuando assim como uma pagina de login completa.
+A seguinte página foi feita com HTML, CSS e JavaScript puro, e trás um layoult simples porém responsivo. A aplicação faz a criação e o login de um usuário, atuando assim como uma pagina de autenticação e criação de usuário.
 
 ![Screenshot 2021-08-09 at 19-49-08 Login](https://user-images.githubusercontent.com/62302606/130157340-3228e366-02f9-4165-b480-0c7f96037e1e.png)
 
